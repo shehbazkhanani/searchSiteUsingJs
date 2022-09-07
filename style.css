@@ -8,7 +8,7 @@
 
 body {
     text-align: center;
-    margin-top: 30vh;
+    margin-top: 15vh;
 }
 
 select {
@@ -84,4 +84,12 @@ p:hover {
     margin-left: auto;
     margin-right: auto;
     width: 90vh;
+}
+
+.container1 {
+    display: flex;
+}
+
+.cont {
+    padding-left: 58vh;
 }
