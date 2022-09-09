@@ -115,11 +115,11 @@ let mobiles = [
     },
 ];
 
-// function Display name of device using map() function
+// function Display name of device using filter() function
 let mobileToShow = "";
 functionToDisplay("mobileName");
 function functionToDisplay(idMobileName) {
-    mobiles.map(function (e) {
+    mobiles.filter(function (e) {
         mobileNametoDiplay = Object.keys(e)[0];
         mobileToShow += `<option value="${mobileNametoDiplay}"> ${mobileNametoDiplay} </Option>`;
     });
@@ -145,7 +145,6 @@ function functionClickTo() {
 // Search function using filter() Method for showing Others Features
 function onValue() {
     mobiles.filter(function (e) {
-        console.log("DATA",Object.keys(e)[0],mobileName)
         if (Object.keys(e)[0] == mobileName.value) {
             let mobileName = document.getElementById('mobileName')
             let mobileModel = document.getElementById('mobileModel')
