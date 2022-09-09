@@ -143,26 +143,24 @@ function functionClickTo() {
 
 
 // Search function using filter() Method for showing Others Features
+
 function onValue() {
+    let mobileValueToShow = "";
     mobiles.filter(function (e) {
         if (Object.keys(e)[0] == mobileName.value) {
-            let mobileName = document.getElementById('mobileName')
-            let mobileModel = document.getElementById('mobileModel')
-            let resultToDisplayName = Object.keys(e[mobileName.value][mobileModel.value])
-            let resultToDisplayModel = Object.values(e[mobileName.value][mobileModel.value])
-            document.getElementById("demo").innerHTML = resultToDisplayName[0];
-            document.getElementById("demo1").innerHTML = resultToDisplayModel[0];
-            document.getElementById("demo2").innerHTML = resultToDisplayName[1];
-            document.getElementById("demo3").innerHTML = resultToDisplayModel[1];
-            document.getElementById("demo4").innerHTML = resultToDisplayName[2];
-            document.getElementById("demo5").innerHTML = resultToDisplayModel[2];
-            document.getElementById("demo6").innerHTML = resultToDisplayName[3];
-            document.getElementById("demo7").innerHTML = resultToDisplayModel[3].Processor;
-            document.getElementById("demo8").innerHTML = resultToDisplayModel[3].Camera;
-            document.getElementById("demo9").innerHTML = resultToDisplayModel[3].Battery;
+            Object.entries(e[mobileName.value][mobileModel.value]).forEach(([keys, value]) => {
+                if (keys !== "Detail") {
+                    mobileValueToShow += `<h1> ${keys}: ${value} </h1>`;
+                } else {
+                    let keys = Object.entries(value).map(([key, value]) => {
+                        mobileValueToShow += `<h1> ${key}:${value} </h1>`;
+                    })
+                }
+            })
         }
     }
     )
+    document.getElementById("ValueToShow").innerHTML = mobileValueToShow;
 };
 
 // Callback function for diplay by defoult modelName's
